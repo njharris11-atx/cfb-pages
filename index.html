@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CFB Pages</title>
+<meta name="description" content="College football analytics and gambling fun.">
+<style>
+/* Layout: one narrow column, header then a list of page cards, newest first */
+:root{--bg:#f6f7f9;--panel:#fff;--fg:#1b1f26;--muted:#5f6670;--line:#e1e4e9;--accent:#2563eb;--tag:#eef3fe}
+@media (prefers-color-scheme:dark){:root{--bg:#14171c;--panel:#1c2027;--fg:#e8ebef;--muted:#9aa2ad;--line:#2f353e;--accent:#6091ff;--tag:#1f2a40;color-scheme:dark}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.wrap{max-width:760px;margin:0 auto;padding:40px 16px 56px}
+h1{font:400 34px/1.15 Georgia,"Times New Roman",serif;margin:0}
+.tagline{color:var(--muted);margin:6px 0 28px}
+h2{font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+.list{display:flex;flex-direction:column;gap:12px;margin:0;padding:0;list-style:none}
+.item a{display:block;background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:16px 18px;color:inherit;text-decoration:none;transition:border-color .15s}
+.item a:hover,.item a:focus-visible{border-color:var(--accent);outline:none}
+.top{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.name{font-weight:600;font-size:17px;color:var(--accent)}
+.date{font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.desc{margin:4px 0 0;color:var(--muted);font-size:14px}
+.tag{display:inline-block;margin-top:8px;font-size:12px;padding:1px 8px;border-radius:999px;background:var(--tag);color:var(--fg)}
+footer{margin-top:32px;font-size:12px;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>CFB Pages</h1>
+  <p class="tagline">College football analytics and gambling fun.</p>
+
+  <h2>Pages</h2>
+  <ul class="list">
+    <!-- To add a page: copy one <li> block, put it at the top, and change the link, name, date and description. -->
+    <li class="item">
+      <a href="week9-pick-card.html">
+        <div class="top"><span class="name">Week 9 pick card</span><span class="date">Oct 28, 2026</span></div>
+        <p class="desc">Against-the-spread picks for Week 9, with unit sizes from the angle register.</p>
+        <span class="tag">2026 · Week 9</span>
+      </a>
+    </li>
+    <li class="item">
+      <a href="coach_scorecard_2026_wk8.html">
+        <div class="top"><span class="name">Head coach scorecard</span><span class="date">Oct 28, 2026</span></div>
+        <p class="desc">All 138 FBS teams scored out of 100 on seven categories: stuff rate, red-zone offense and defense, turnover margin, special teams SP+, penalties and second-half EPA.</p>
+        <span class="tag">2026 · through Week 8</span>
+      </a>
+    </li>
+  </ul>
+
+  <footer>Data: ESPN play-by-play via sportsdataverse; SP+ ratings.</footer>
+</div>
+</body>
+</html>
