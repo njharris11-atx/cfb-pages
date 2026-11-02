@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<style>:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}*,*::before,*::after{box-sizing:inherit}body{margin:0}img{max-width:100%}</style>
+<title>Week 10 Pick Card</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: same printed betting card as Weeks 7-8; one tier of full tickets, then the key */
+:root{
+  --bg:#eef0ea; --paper:#fbfcf8; --ink:#17201a; --muted:#5b665d; --line:#cfd6cc;
+  --turf:#1f5a3a; --turf-soft:#dbe8df; --chalk:#ffffff; --warn:#8a4b12; --warn-soft:#f5e6d6;
+  --display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
+  --body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1511; --paper:#18201b; --ink:#e7ece6; --muted:#9aa79d; --line:#2c3a31;
+  --turf:#7cc59a; --turf-soft:#1f3328; --chalk:#0f1511; --warn:#e3a868; --warn-soft:#33261a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1511; --paper:#18201b; --ink:#e7ece6; --muted:#9aa79d; --line:#2c3a31;
+  --turf:#7cc59a; --turf-soft:#1f3328; --chalk:#0f1511; --warn:#e3a868; --warn-soft:#33261a; color-scheme:dark}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:15px;line-height:1.5;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:640px;margin:0 auto;padding-block:28px 40px;display:flex;flex-direction:column;gap:18px}
+header{display:flex;flex-direction:column;gap:6px;padding-bottom:6px;border-bottom:3px solid var(--ink)}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+h1{font-family:var(--display);font-weight:800;font-size:clamp(40px,10vw,60px);line-height:.95;margin:0;letter-spacing:.01em;text-transform:uppercase;text-wrap:balance}
+.sub{color:var(--muted);margin:0;max-width:60ch}
+.record{display:flex;flex-wrap:wrap;gap:6px 18px;font-family:var(--mono);font-size:13px;color:var(--muted);font-variant-numeric:tabular-nums}
+.record b{font-family:var(--display);font-weight:800;font-size:22px;color:var(--ink);margin-right:4px}
+.recnote{font-size:12px;color:var(--muted);margin:0;max-width:62ch}
+.tally{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.tile{border:1px solid var(--line);background:var(--paper);border-radius:4px;padding:8px 10px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.tile .n{font-family:var(--display);font-weight:800;font-size:30px;line-height:1;color:var(--turf);font-variant-numeric:tabular-nums}
+.tile .l{font-size:12.5px;color:var(--muted)}
+.first{background:var(--warn-soft);border-radius:6px;padding:10px 14px;display:flex;flex-direction:column;gap:4px}
+.first strong{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--warn)}
+.first p{margin:0;font-size:14px}
+h2.tier{font-family:var(--display);font-weight:800;font-size:30px;text-transform:uppercase;margin:6px 0 0;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;text-wrap:balance}
+h2.tier small{font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.04em;color:var(--muted);text-transform:none}
+.pick{background:var(--paper);border:1px solid var(--line);border-radius:6px;display:grid;grid-template-columns:52px 1fr;overflow:hidden}
+.rank{background:var(--turf);color:var(--chalk);font-family:var(--display);font-weight:800;font-size:20px;letter-spacing:.04em;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding-top:14px;line-height:1}
+.body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.top{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:4px 12px}
+.team{font-family:var(--display);font-weight:800;font-size:30px;line-height:1;text-transform:uppercase;letter-spacing:.01em}
+.line{font-family:var(--mono);font-size:24px;font-variant-numeric:tabular-nums;color:var(--turf)}
+.meta{font-size:13px;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-family:var(--mono);font-size:11.5px;letter-spacing:.04em;padding:3px 8px;border-radius:3px;background:var(--turf-soft);color:var(--ink);border:1px solid var(--line)}
+.chip b{color:var(--turf);font-weight:500}
+.why{margin:0;max-width:62ch}
+.edges{display:flex;flex-wrap:wrap;gap:14px;font-family:var(--mono);font-size:12px;color:var(--muted);font-variant-numeric:tabular-nums;border-top:1px dashed var(--line);padding-top:8px}
+.edges span b{color:var(--ink);font-weight:500}
+.rates{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px}
+.rate{border:1px solid var(--line);border-radius:4px;padding:8px 10px;display:flex;flex-direction:column;gap:2px;min-width:0}
+.rate .pct{font-family:var(--display);font-weight:800;font-size:30px;line-height:1;color:var(--turf);font-variant-numeric:tabular-nums}
+.rate.weak .pct{color:var(--warn)}
+.rate .lbl{font-size:12.5px;color:var(--ink)}
+.rate .rec{font-family:var(--mono);font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.note{font-size:13px;color:var(--warn);background:var(--warn-soft);padding:6px 10px;border-radius:3px;margin:0}
+.list{background:var(--paper);border:1px solid var(--line);border-radius:6px;display:flex;flex-direction:column}
+.row{display:grid;grid-template-columns:1fr auto;gap:2px 12px;padding:10px 14px;border-top:1px solid var(--line);min-width:0}
+.row:first-child{border-top:0}
+.row .t{font-family:var(--display);font-weight:800;font-size:21px;text-transform:uppercase;line-height:1.1;min-width:0}
+.row .ln{font-family:var(--mono);font-size:18px;color:var(--turf);font-variant-numeric:tabular-nums;text-align:right}
+.row .d{grid-column:1/-1;font-size:13px;color:var(--muted);display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center}
+.row .d .chip{font-size:11px;padding:1px 6px}
+.row .flag{grid-column:1/-1;font-size:12.5px;color:var(--warn)}
+.res{font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:3px;background:var(--turf);color:var(--chalk);white-space:nowrap}
+.res.loss{background:var(--warn)}
+.res.void{background:var(--muted)}
+.row.done .t,.row.done .ln{opacity:.6}
+.row .score{grid-column:1/-1;font-size:13px;color:var(--ink);display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center}
+.score{font-size:13px;color:var(--ink);display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center}
+.first .live{font-family:var(--mono);font-size:12.5px;color:var(--ink);font-variant-numeric:tabular-nums}
+.aside{border:1px dashed var(--line);border-radius:6px;padding:12px 14px;font-size:14px;color:var(--muted);display:flex;flex-direction:column;gap:6px}
+.aside strong{color:var(--ink)}
+.aside p{margin:0}
+.key{display:flex;flex-direction:column;gap:12px;border-top:3px solid var(--ink);padding-top:14px}
+.key h2{font-family:var(--display);font-weight:800;font-size:28px;text-transform:uppercase;margin:0}
+.key dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:10px 14px}
+.key dt{font-family:var(--mono);font-size:12px;padding-top:2px}
+.key dt .chip{display:inline-block;white-space:nowrap}
+.key dd{margin:0;min-width:0;font-size:14px}
+.key dd .rec{font-family:var(--mono);font-size:12px;color:var(--turf);white-space:nowrap}
+.key h3{font-size:13px;font-family:var(--mono);text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:8px 0 0}
+.fine{font-size:12.5px;color:var(--muted);margin:0;max-width:65ch}
+@media (max-width:420px){.pick{grid-template-columns:42px 1fr}.rank{font-size:17px}.team{font-size:26px}.line{font-size:21px}.tally .tile .n{font-size:26px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <span class="eyebrow">Game on Paper · CFB Week 10 · Nov 3–7, 2026</span>
+    <h1>Week 10 Card</h1>
+    <div class="record">
+      <span><b>3-1</b> Week 9, 2 void</span>
+      <span><b>13-12</b> 2026 season</span>
+      <span><b>0-0</b> Week 10 so far</span>
+    </div>
+    <p class="recnote">ATS record of 2+ angle plays (the current card rule). Weeks 4–8 use the closing-line backtest (10-11), the same method as the historical records. From Week 9 on, the record is the card's live results at the card's lines under the QB void rule (3-1, 2 void).</p>
+    <p class="sub">Only plays where two or more angles back the same side make the card. Single-angle qualifiers are not bet. Lines are the VegasInsider consensus from Monday, Nov 2, checked against ESPN. Stats run through Week 9. Shop for the best number.</p>
+  </header>
+
+  <div class="tally">
+    <div class="tile"><span class="n">2</span><span class="l">plays</span></div>
+    <div class="tile"><span class="n">2</span><span class="l">still to play</span></div>
+    <div class="tile"><span class="n">68.1%</span><span class="l">2+ angles since 2016</span></div>
+  </div>
+
+  <h2 class="tier">The Card <small>2+ angles agree · 233-109 (68.1%) since 2016</small></h2>
+
+  <article class="pick">
+    <div class="rank">FRI</div>
+    <div class="body">
+      <div class="top"><span class="team">Nevada</span><span class="line">+10</span></div>
+      <div class="meta">vs New Mexico · Fri 9:00 ET · home underdog</div>
+      <div class="chips"><span class="chip"><b>NQ</b> new QB vs elite havoc + stuff D</span><span class="chip"><b>NQ7</b> same, dog of 7+</span></div>
+      <div class="rates">
+        <div class="rate"><span class="pct">66.1%</span><span class="lbl">NQ and NQ7 together</span><span class="rec">74-38</span></div>
+        <div class="rate"><span class="pct">61.2%</span><span class="lbl">NQ alone</span><span class="rec">150-95</span></div>
+        <div class="rate"><span class="pct">61.1%</span><span class="lbl">NQ7 alone</span><span class="rec">132-84</span></div>
+      </div>
+      <p class="why">Luke Duncan has 4 career starts and faces a New Mexico defense at the very top of FBS in havoc rate (100th percentile) and stuff rate (99th). The market tends to overprice young QBs against defenses like this. Nevada trails on every matchup stat, which this angle doesn't use. The line has dropped from +12.5 on Sunday to +10. Nevada was on last week's card in the same spot and lost 27-0 at UCLA.</p>
+      <div class="edges"><span>headline <b>−0.94</b></span><span>stuff <b>−1.55</b></span><span>red zone <b>−1.60</b></span><span>UNM D havoc pct <b>1.00</b></span><span>UNM D stuff pct <b>0.99</b></span></div>
+      <p class="note">The two QB angles mostly overlap, so stacking them adds only a few points over NQ alone. Void if Luke Duncan (4 starts) doesn't start.</p>
+    </div>
+  </article>
+
+  <article class="pick">
+    <div class="rank">SAT</div>
+    <div class="body">
+      <div class="top"><span class="team">UL Monroe</span><span class="line">+14.5</span></div>
+      <div class="meta">at Arkansas State · Sat 3:00 ET · road underdog</div>
+      <div class="chips"><span class="chip"><b>HB</b> hot bad defense fade on Arkansas State</span><span class="chip"><b>QS</b> new-QB sack fade on Arkansas State</span></div>
+      <div class="rates">
+        <div class="rate"><span class="pct">75.0%</span><span class="lbl">HB and QS together (tiny sample)</span><span class="rec">12-4</span></div>
+        <div class="rate"><span class="pct">61.3%</span><span class="lbl">HB alone</span><span class="rec">319-201</span></div>
+        <div class="rate"><span class="pct">56.3%</span><span class="lbl">QS alone</span><span class="rec">214-166</span></div>
+      </div>
+      <p class="why">Both angles fade Arkansas State. Its defense ranks in the bottom 8% of FBS in yards per play allowed, yet it has covered its last two games. Its QB Trey Owens has 8 starts, passes efficiently (66th percentile in EPA per dropback) and takes a lot of sacks. UL Monroe is 2-6 against the spread, but teams with bad records have been among the card's best plays.</p>
+      <div class="edges"><span>headline <b>−1.08</b></span><span>red zone <b>+0.38</b></span><span>early-down rush <b>+0.26</b></span><span>ARST D ypp pct <b>0.08</b></span></div>
+      <p class="note">QB check: both angles are about Arkansas State, so the play stands only if Trey Owens (8 starts) starts for Arkansas State.</p>
+    </div>
+  </article>
+
+  <div class="aside">
+    <p><strong>No play, angles on both sides:</strong> Temple at Navy. RR and SR back Navy, and QS fades Temple's Ajani Sheppard, but QS also fades Navy's Jackson Gutierrez.</p>
+    <p><strong>Off the card:</strong> 18 games had only one angle and are not bet.</p>
+    <p><strong>Board:</strong> 62 FBS games had lines Monday (Merrimack at Wake Forest skipped). Later lines could add plays.</p>
+  </div>
+
+  <section class="key">
+    <h2>Key</h2>
+    <h3>Angles, best record first</h3>
+    <dl>
+      <dt><span class="chip"><b>XF</b></span></dt>
+      <dd>Top-third explosive-rate and passing-down pass EPA edges, headline stats not agreeing. Fade the team. <span class="rec">61-36 · 62.9%</span></dd>
+      <dt><span class="chip"><b>RR</b></span></dt>
+      <dd>Top-third edges in early-down rush success and red-zone success, headline stats not agreeing. Back the team. <span class="rec">135-82 · 62.2%</span></dd>
+      <dt><span class="chip"><b>HB</b></span></dt>
+      <dd>Bottom-quarter defense in yards per play allowed that covered its last two games or 70%+ of its games. Fade it. <span class="rec">319-201 · 61.3%</span></dd>
+      <dt><span class="chip"><b>SR</b></span></dt>
+      <dd>Top-third edges in stuff rate and red-zone success, early-down EPA edge not agreeing. Back the team. <span class="rec">103-65 · 61.3%</span></dd>
+      <dt><span class="chip"><b>NQ</b></span></dt>
+      <dd>QB with 5 or fewer starts facing a defense 85th percentile or better in both havoc and stuff rate. Back the new QB. <span class="rec">150-95 · 61.2%</span></dd>
+      <dt><span class="chip"><b>NQ7</b></span></dt>
+      <dd>QB with under 10 starts, team is a 7+ underdog, same kind of defense. Back the team. <span class="rec">132-84 · 61.1%</span></dd>
+      <dt><span class="chip"><b>OP</b></span></dt>
+      <dd>Top-third opportunity-rate edge, and the team is an underdog. Back the team. <span class="rec">207-142 · 59.3%</span></dd>
+      <dt><span class="chip"><b>BB</b></span></dt>
+      <dd>Lost its previous game by 28 or more, now on the road. Back the team. <span class="rec">275-207 · 57.1%</span></dd>
+      <dt><span class="chip"><b>NE</b></span></dt>
+      <dd>Top-quarter net EPA team that is a 7+ underdog. Fade it. <span class="rec">160-124 · 56.3%</span></dd>
+      <dt><span class="chip"><b>QS</b></span></dt>
+      <dd>QB with under 10 starts, passing EPA 60th percentile or better, sack rate allowed in the worst 40%. Fade the team. <span class="rec">214-166 · 56.3%</span></dd>
+    </dl>
+    <h3>Card rule</h3>
+    <dl>
+      <dt>Play</dt><dd>Two or more angles back the same side. The two net-EPA fades count as one angle. <span class="rec">233-109 · 68.1%</span></dd>
+      <dt>Skip</dt><dd>Only one angle backs the side. Not bet from Week 9 on. <span class="rec">988-720 · 57.8%</span></dd>
+      <dt>Pass</dt><dd>Angles point to both sides of the same game. <span class="rec">207-207 · 50.0%</span></dd>
+    </dl>
+    <h3>Terms</h3>
+    <dl>
+      <dt>Edges</dt><dd>The team's offense against the opponent's defense, and the reverse, using percentile ranks among FBS teams. Top-third cutoffs are about +0.54 for stuff rate, +0.57 for red zone, +0.53 for early-down rush and +0.56 for opportunity rate.</dd>
+      <dt>Headline</dt><dd>The combined edge on EPA per play, EPA per dropback, yards per play and points per drive. Below +0.5 counts as "not agreeing."</dd>
+      <dt>QB void</dt><dd>If the QB of the team an angle is about doesn't start, that angle is void. If that leaves only one angle, the play is void and isn't graded.</dd>
+      <dt>Records</dt><dd>ATS against closing lines, 2016–19 and 2021–26 through Week 9, pushes left out. Break-even at −110 is 52.4%. Figures in orange are close to break-even.</dd>
+    </dl>
+    <p class="fine">These angles were picked after looking at the data, so expect real results below these rates, roughly 62% for card plays. The model uses play-by-play only, so it doesn't see injuries, QB changes or weather.</p>
+  </section>
+</div>
+</body>
+</html>
